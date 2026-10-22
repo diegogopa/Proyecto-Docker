@@ -1,0 +1,16 @@
+target/
+.git/
+.github/
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.md
+docs/
+perf/
+.env
+.env.*
+docker-compose*.yml
+Dockerfile
+.dockerignore

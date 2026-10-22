@@ -1,0 +1,15 @@
+name: campusfix
+
+services:
+  app:
+    build: .
+    image: campusfix:dev
+    ports:
+      # puerto_del_equipo:puerto_del_contenedor (el del equipo se cambia en .env)
+      - "${APP_PORT:-8080}:8080"
+    environment:
+      PORT: 8080
+    restart: unless-stopped
+    # El HEALTHCHECK viene del Dockerfile (GET /salud).
+    # No hay servicio de base de datos: CampusFix usa H2 embebido en memoria,
+    # dentro del mismo proceso. Los datos se pierden al reiniciar el contenedor.
